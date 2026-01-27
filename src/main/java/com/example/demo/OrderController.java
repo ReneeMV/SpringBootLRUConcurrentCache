@@ -9,6 +9,8 @@ import java.util.Map;
 @RequestMapping("/orders")
 public class OrderController 
 {
+    /// TODO: use cache interface instead
+    //private final Cache<String, Order> cache;
 
     private final LruCache<String, String> cache =
             new LruCache<>(3);
