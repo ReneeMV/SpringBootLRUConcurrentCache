@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.reneeveit.concurrentcache.caches;
 
 // preserver *ORDER* for eviction
 import java.util.LinkedHashMap;

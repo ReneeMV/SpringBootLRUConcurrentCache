@@ -1,9 +1,9 @@
-package com.example.demo;
+package com.reneeveit.concurrentcache.caches;
 
-public class LruCacheWrapper<K,V> implements Cache<K,V> {
+public class ConcurrentLruCacheImpl<K,V> implements Cache<K,V> {
     private final LruCache<K, V> delegate;
 
-    public LruCacheWrapper(int capacity) {
+    public ConcurrentLruCacheImpl(int capacity) {
         this.delegate = new LruCache<>(capacity);
     }
 

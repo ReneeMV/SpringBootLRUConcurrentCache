@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.reneeveit.concurrentcache.caches;
 
 public interface Cache<K,V> {
     //accessor: returns the value

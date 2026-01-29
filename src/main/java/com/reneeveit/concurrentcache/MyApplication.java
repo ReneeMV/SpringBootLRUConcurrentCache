@@ -1,5 +1,5 @@
 // package namespace where file lives, prevents naming collisions, controls organization
-package com.example.demo;
+package com.reneeveit.concurrentcache;
 // imports
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 // auto converts return values -> HTTP responses (JSON or text), no manual serialization needed
 @RestController
-public class DemoApplication 
+public class MyApplication 
 {
     // run mvn spring-boot:run in directory with pom.xml on http://localhost:8080
     public static void main(String[] args) 
 	{
 		//.run starts app, web server, loads configs -> handle requests
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(MyApplication.class, args);
 		
     }
 	// when a GET request hits this URL, call this method
