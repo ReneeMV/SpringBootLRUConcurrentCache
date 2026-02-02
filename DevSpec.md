@@ -1,7 +1,7 @@
 # Concurrent LRU Cache Dev Spec
 
 ## Overview and Motivation
-During the interview process, a hiring manager recommended I implement an LRU cache with concurrency to better understand the problem space of fixed income trading. The goal of this side project is to simulate on order management system, monitorhow concurrency impacts latency, and build credible judgement by reasoning through tradeoffs. 
+During the interview process, a hiring manager recommended I implement an LRU cache with concurrency to better understand the problem space of fixed income trading. The goal of this side project is to simulate an order management system, monitor / log how concurrency impacts latency, and build credible judgement by reasoning through tradeoffs. 
 
 ### References
 
@@ -9,16 +9,25 @@ During the interview process, a hiring manager recommended I implement an LRU ca
 * demonstrate thread-safety (and the absence of deadlocks) with accessing and updating data
 * create JUnit tests that show concurrency safety
 
-## Basics
+### In Scope Features
+TODO
+
+### Out of Scope Feautres
+TODO
+
+## Testing, Monitoring, and Deployment
 
 ### Local Testing
 JUnit
+
+## E2E Testing
+run ``` mvn spring-boot:run``` then test via http://localhost:8080
 
 ### Logs
 TODO: how to monitor latency
 
 ### Deployment
-SpringBoot
+SpringBoot?
 
 ## Key Architectural Decisions
 * The "caches" folder will have the Cache.java interface alongside different implementations of the cache
