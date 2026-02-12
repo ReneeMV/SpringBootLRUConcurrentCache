@@ -18,8 +18,8 @@ public class OrderController
     private final LruCache<String, String> cache =
             new LruCache<>(3);
 
-    // when a GET request hits this URL, call this method
-    @GetMapping("/{orderId}") // /orders/{orderId}
+    // POST to create orders
+    @PostMapping("/{orderId}") // /orders/{orderId}
     // pull value from URL -> method variable
     public String getOrder(@PathVariable String orderId) 
     {
