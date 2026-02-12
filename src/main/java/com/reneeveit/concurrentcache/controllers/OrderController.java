@@ -8,6 +8,7 @@ import java.util.Map;
 
 @RestController
 // base URL for all endpoints in controller (common URL prefix for grouped endpoints)
+// http://localhost:8080/orders/cache
 @RequestMapping("/orders")
 public class OrderController 
 {

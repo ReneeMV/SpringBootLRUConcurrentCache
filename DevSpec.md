@@ -10,10 +10,19 @@ During the interview process, a hiring manager recommended I implement an LRU ca
 * create JUnit tests that show concurrency safety
 
 ### In Scope Features
-TODO
+v1. Tradeoffs between non-thread-safe LRU, manually locked LRU, and concurrency based LRU. Include benchmarks and stress tests to measure differences (metrics).
+- and testing
 
 ### Out of Scope Feautres
-TODO
+v2. OMS
+v3. incorporate databases (SQL) to show OCC
+v4. "redlock"
+- UI
+- distributed system
+
+## Questions
+v2.
+- Domain model? (Order book?)
 
 ## Testing, Monitoring, and Deployment
 
@@ -40,8 +49,9 @@ SpringBoot?
     * TODO: finish "study guide" write up of OMS to gain clarity on which data structures I need and why
 
 ## Technical Design
+I intentionally created the initial implementation as "unsafe" to demonstrate my understanding of specific failure modes. By proving the system fails under specific conditions, I get to show my knowledge of the weak points in my design.
 
-### What data I'm dealing with
+### What data I'm dealing with  
 
 ### How often it changes
 
