@@ -24,14 +24,13 @@ v1.
 ### Out of Scope Feautres
 * UI
 * distributed system
-v2. OMS + TTL (usually used alongside LRU eviction policy)
-v3. Incorporate databases (SQL) to show OCC
-v4. Incorporate "redlock" (TODO: research)
+    - v2. OMS + TTL (usually used alongside LRU eviction policy)
+    - v3. Incorporate databases (SQL) to show OCC
+    - v4. Incorporate "redlock" (TODO: research)
 
 ## Questions / TODOs
 v1.
-* how to write concurrency tests / spawn 100 threads?
-    - asked chat gpt. TODO: outline in spec
+* outline concurrency tests 
 * JMeter for stress testing?
 * 2/11/26 - research ReentrantLock and synchronized blocks in Java, start Concurrent Lru Cache Implementation
 
@@ -50,7 +49,7 @@ v2.
 
 
 ### Race Condition Test(s)
-* These will test collisons (two threads try to add the same order (key) to cache at the same time) amd will fail for the non-thread-safe cache
+* These will test collisons (two threads try to add the same order (key) to cache at the same time) and will fail for the non-thread-safe cache
     - lostUpdateUnderConcurrency 
 
 ### Concurrency Tests
