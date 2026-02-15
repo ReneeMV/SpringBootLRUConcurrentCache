@@ -5,11 +5,10 @@ package com.reneeveit.concurrentcache.caches;
 import org.junit.jupiter.api.Test; //Junit 5, chose most recent stable version
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.concurrent.locks.ReentrantLock;
-
 import com.reneeveit.concurrentcache.models.Order;
 
-
-public class LruCacheTests {
+public class LruCacheTests 
+{
 
     // don't want other folks messing with the lock
 	private final ReentrantLock lock = new ReentrantLock();
@@ -17,10 +16,46 @@ public class LruCacheTests {
     // set capacity
     private final LruCache<String, Order> cache = new LruCache(3);
 
-    
+    @Test 
+    void putAndGetValue() 
+    {
+
+    }
+
+    @Test 
+    void returnNullForMissingKey() 
+    {
+
+    }
+
+    @Test 
+    void respectCacheCapacity()
+    {
+
+    }
+
+    @Test 
+    void respectCacheCapacityWhenCapacityIsOne()
+    {
+
+    }
+
+    @Test 
+    void evictLRUWhenFull()
+    {
+
+    }
+
+    @Test 
+    void sizeNeverExceedsCapacity()
+    {
+        
+    }
+
     // make sure eviction works as expected
     @Test
-    void evictsLeastRecentlyUsedEntryWhenCapacityExceeded() {
+    void evictsLeastRecentlyUsedEntryWhenCapacityExceeded() 
+    {
         LruCache<String, Order> cache = new LruCache<>(3);
 
         // populate cache

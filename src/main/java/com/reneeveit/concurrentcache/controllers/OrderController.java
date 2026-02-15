@@ -1,14 +1,11 @@
 package com.reneeveit.concurrentcache.controllers;
-//learned: Spring doesn't "hot-reload" by default, must stop (Ctrl-C) and restart (mvn spring-boot:run) 
+//TODO: learned: Spring doesn't "hot-reload" by default, must stop (Ctrl-C) and restart (mvn spring-boot:run) 
 import com.reneeveit.concurrentcache.caches.LruCache;
-
 import org.springframework.web.bind.annotation.*;
-
 import java.util.Map;
 
 @RestController
 // base URL for all endpoints in controller (common URL prefix for grouped endpoints)
-// http://localhost:8080/orders/cache
 @RequestMapping("/orders")
 public class OrderController 
 {
@@ -31,6 +28,7 @@ public class OrderController
         );
     }
 
+    // http://localhost:8080/orders/cache
     @GetMapping("/cache")
     public Map<String, String> cacheContents() 
     {

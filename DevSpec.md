@@ -5,7 +5,8 @@ During the interview process, a hiring manager recommended I implement an LRU ca
 
 ### References
 - mvn logs: https://mvnrepository.com/artifact/org.slf4j/slf4j-api/2.0.17
-- quicker way to run app: java [$JAVA_OPTS] -jar [jar_file_name].jar (see README for detailed instructions)
+- Spring Boot Executable Jar Documentation: https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#executable-jar
+ - quicker way to run app: ```java [$JAVA_OPTS] -jar [jar_file_name].jar``` (see README for detailed instructions)
 
 ### Requirements
 * demonstrate thread-safety (and the absence of deadlocks) with accessing and updating data
@@ -62,7 +63,7 @@ v2.
 ### Local Testing
 JUnit
 
-## E2E Testing
+### E2E Testing
 run ``` mvn spring-boot:run``` then test via http://localhost:8080
 
 ## Monitoring
