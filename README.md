@@ -31,15 +31,22 @@ mvn spring-boot:run
 ```
 OR 
 
-run mvn clean install, change the artifactId in pom.xml from 
+run 
+```
+mvn clean install
+```
+then change the artifactId in pom.xml from 
 ```<artifactId>demo</artifactId> ``` to ```<artifactId>lru-cache</artifactId> ```, then run
 
 ```
 java -jar target/lru-cache-0.0.1-SNAPSHOT.jar
 
 ```
-* you'll see the project on http://localhost:8080
+* you'll see GET requests on http://localhost:8080, but you must use a API tool like ThunderClient or Bruno for the POST requests
     * check the controller @RequestMapping for base path and endpoint methods URLs 
+
+#### PRO-TIP
+Spring doesn't "hot-reload" by default. After making changes you must stop (Ctrl-C) and restart (mvn spring-boot:run)
 
 
 ## Author
@@ -57,4 +64,4 @@ Renee Veit
 
 ## Acknowledgments
 
-Huge shout-out to my mentors [Gabrielle Sweet](https://www.linkedin.com/in/gabrielle-sweet/), [Norman Nunley](https://www.linkedin.com/in/norman-nunley/), and [Briana Bradshaw](https://www.linkedin.com/in/brianabradshaw/)! 
+Huge shout-out to my mentors [Briana Bradshaw](https://www.linkedin.com/in/brianabradshaw/), [Gabrielle Sweet](https://www.linkedin.com/in/gabrielle-sweet/), and [Norman Nunley](https://www.linkedin.com/in/norman-nunley/)! 

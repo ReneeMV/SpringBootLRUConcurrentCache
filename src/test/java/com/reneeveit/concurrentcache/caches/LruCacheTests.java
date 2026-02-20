@@ -7,13 +7,13 @@ import com.reneeveit.concurrentcache.models.Order;
 
 public class LruCacheTests
 {
-    // set capacity
     private LruCache<String, Order> cache;
     
     // ARRANGE
     @BeforeEach
     void setUp()
     {
+        // set capacity
         cache = new LruCache<>(3);
     }
     
@@ -73,7 +73,7 @@ public class LruCacheTests
     @Test 
     void evictLRUWhenFull()
     {
-         // populate cache
+        // populate cache
         cache.put("A", new Order(1));
         cache.put("B", new Order(2));
         cache.put("C", new Order(3));

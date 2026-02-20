@@ -17,7 +17,7 @@ public class LruCache<K, V> extends LinkedHashMap<K, V>
         this.capacity = capacity;
     }
 
-    // LinkedHashMap does 90% of the work (reuse well tested data structure), I need to define when to evict
+    // LinkedHashMap does 90% of the work (reusing well tested data structure), I need to define when to evict
     @Override
     protected boolean removeEldestEntry(Map.Entry<K, V> eldest) 
     {

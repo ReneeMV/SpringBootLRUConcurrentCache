@@ -1,5 +1,5 @@
 package com.reneeveit.concurrentcache.controllers;
-//TODO: learned: Spring doesn't "hot-reload" by default, must stop (Ctrl-C) and restart (mvn spring-boot:run) 
+
 import com.reneeveit.concurrentcache.caches.LruCache;
 import org.springframework.web.bind.annotation.*;
 import java.util.Map;
@@ -9,15 +9,10 @@ import java.util.Map;
 @RequestMapping("/orders")
 public class OrderController 
 {
-    /// TODO: use cache interface instead
-    //private final Cache<String, Order> cache;
+    private final LruCache<String, String> cache = new LruCache<>(3);
 
-    private final LruCache<String, String> cache =
-            new LruCache<>(3);
-
-    // POST to create orders
     @PostMapping("/{orderId}") // /orders/{orderId}
-    // pull value from URL -> method variable
+    // @PathVariable pull value from URL -> method variable
     public String getOrder(@PathVariable String orderId) 
     {
         // return value if key exists, else compute using lambda, store, and return (lazy population: only computed once, on demand)

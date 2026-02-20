@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MyApplication 
 {
-    // run mvn spring-boot:run in directory with pom.xml on http://localhost:8080
     public static void main(String[] args) 
 	{
 		//.run starts app, web server, loads configs -> handle requests
@@ -24,7 +23,6 @@ public class MyApplication
 	// when a GET request hits this URL, call this method
     @GetMapping("/hello")
 	// @RequestParam binds a query parameter (name) from URL to this value, handles defauls / type conversion
-	// 
     public String hello(@RequestParam(value = "name", defaultValue = "World") String name) {
       return String.format("Hello %s!", name);
     }
