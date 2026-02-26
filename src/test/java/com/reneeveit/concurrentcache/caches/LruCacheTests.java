@@ -3,11 +3,20 @@ package com.reneeveit.concurrentcache.caches;
 import org.junit.jupiter.api.Test; //Junit 5, chose most recent stable version
 import org.junit.jupiter.api.BeforeEach;
 import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.Random;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
+
 import com.reneeveit.concurrentcache.models.Order;
 
 public class LruCacheTests
 {
     private LruCache<String, Order> cache;
+    private static Logger logger = LoggerFactory.getLogger(LruCacheTests.class);
     
     // ARRANGE
     @BeforeEach
@@ -99,4 +108,48 @@ public class LruCacheTests
             assertTrue(cache.size() <= 3);
         }
     }   
+
+    @Test
+    void nonThreadSafeLruCache_shouldFailUnderConcurrency() throws InterruptedException
+    // throws when thread is waiting, sleeping, or occupied and is then interrupted (before or during) 
+    {
+        int capacity = 50;
+        LruCache<Integer, Integer> stressTestCache = new LruCache<>(capacity);
+
+        int threadCount = 10;//20
+        int operationsPerThread = 10;//10000
+
+        // executes tasks + lifecycle control (shutdown / futures)
+        ExecutorService executor = Executors.newFixedThreadPool(threadCount);
+        // coordinates threads, allows one thread to wait until other threads complete work
+        CountDownLatch latch = new CountDownLatch(threadCount);
+
+        for (int i = 0; i < threadCount; i++) {
+            executor.submit(() -> {
+                Random random = new Random();
+                for (int j = 0; j < operationsPerThread; j++) {
+
+                    int key = random.nextInt(100);
+
+                    // simulate real world usage: multiple threads reading / writing at the same time
+                    if (random.nextBoolean()) {
+                        // modify map and linked list
+                        stressTestCache.put(key, key);
+                    } else {
+                        // modify order (linked list)
+                        stressTestCache.get(key);
+                    }
+                }
+                latch.countDown();
+            });
+        }
+
+        // make sure stress test finishes before assertions
+        latch.await();
+        // no new tasks accepted
+        executor.shutdown();
+
+        // Invariants that should ALWAYS hold
+        assertTrue(stressTestCache.size() <= capacity);
+    }
 }

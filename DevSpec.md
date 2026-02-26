@@ -53,7 +53,20 @@ v2.
     - lostUpdateUnderConcurrency 
 
 ### Concurrency Tests
-* For manually locked and concurrent versions
+1. Stress test that proves regular LRU cache fails under concurrency:
+    a. Failure Points Include:
+        * Size > capacity
+        * NullPointerException from corrupted linked list
+        * Lost updates (unexpected missing keys)
+        * Infinite loop if list pointers get corrupted
+        * Optionally: validate internal consistency if accessible
+    b. These show failures because
+        * Structural mutations are multi-step and non-atomic
+        * Concurrent interleaving results in partially modified state
+            * This can cause NPEs and break LinkedList pointers (leading to infinite traversals)
+        * Demonstrates need for synchronization
+    c. For sake of time, I chose to focus on logging Size > capacity and Lost updates (unexpected missing keys)
+2. For manually locked and concurrent versions
     - concurrentPutsShouldNotCorruptState
     - concurrentGetsAndPutsShouldMaintainCorrectEviction
     - noDeadlockUnderHighContention
