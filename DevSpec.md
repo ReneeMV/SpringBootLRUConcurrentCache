@@ -55,13 +55,13 @@ v2.
 ### Concurrency Tests
 1. Stress test that proves regular LRU cache fails under concurrency:
     a. Failure Points Include:
-        * Size > capacity
+    * Size > capacity
         * NullPointerException from corrupted linked list
         * Lost updates (unexpected missing keys)
         * Infinite loop if list pointers get corrupted
         * Optionally: validate internal consistency if accessible
     b. These show failures because
-        * Structural mutations are multi-step and non-atomic
+    * Structural mutations are multi-step and non-atomic
         * Concurrent interleaving results in partially modified state
             * This can cause NPEs and break LinkedList pointers (leading to infinite traversals)
         * Demonstrates need for synchronization
