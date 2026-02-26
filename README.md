@@ -53,12 +53,14 @@ Spring doesn't "hot-reload" by default. After making changes you must stop (Ctrl
 Renee Veit 
 
 ## Version History
-
+* 0.3
+    * include Linters and formatting (ESLint, Prettier)
+    * add UI via REACT. Think through user roles, gating, and security considerations as well as authentication flows and accessibility checks
 * 0.2
     * Lightweight OMS
-    * TODO: switch to "sandbox" branch before merging with main
     * See [commit change]() or See [release history]()
 * 0.1
+    * TODO: switch to "sandbox" branch before merging with main
     * MVP: 3 caches (all on main branch)
 
 
