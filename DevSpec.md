@@ -65,6 +65,7 @@ v2.
         * Concurrent interleaving results in partially modified state
             * This can cause NPEs and break LinkedList pointers (leading to infinite traversals)
         * Demonstrates need for synchronization
+        
     c. For sake of time, I chose to focus on logging Size > capacity and Lost updates (unexpected missing keys)
 2. For manually locked and concurrent versions
     - concurrentPutsShouldNotCorruptState
